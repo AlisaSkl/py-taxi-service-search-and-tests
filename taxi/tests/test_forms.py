@@ -3,17 +3,17 @@ from django.test import TestCase
 from taxi.forms import DriverCreationForm, DriverSearchForm
 
 
-class FormsTest(TestCase):
+class DriverCreationFormTest(TestCase):
     def test_driver_creation_form_is_valid(self):
         form_data = {
-            "username": "testuser",
-            "password1": "testpass",
-            "password2": "testpass",
-            "first_name": "test",
-            "last_name": "test",
-            "license_number": "test"
+            "username": "test",
+            "password1": "testpass1",
+            "password2": "testpass1",
+            "license_number": "ABC12345",
+            "first_name": "Test first",
+            "last_name": "Test last",
         }
-        form = DriverCreationForm(form_data)
+        form = DriverCreationForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertEqual(form.cleaned_data, form_data)
 
